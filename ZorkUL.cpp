@@ -14,7 +14,7 @@ ZorkUL::ZorkUL() {
 }
 
 void ZorkUL::createRooms()  {
-	Room *a, *b, *c, *d, *e, *f, *g, *h, *i;
+	Room *a, *b, *c, *d, *e, *f, *g, *h, *i, *x;
 
 	a = new Room("a");
         a->addItem(new Item("x", 1, 11));
@@ -29,10 +29,11 @@ void ZorkUL::createRooms()  {
 	g = new Room("g");
 	h = new Room("h");
 	i = new Room("i");
+	x = new Room("x");
 
 //             (N, E, S, W)
 	a->setExits(f, b, d, c);
-	b->setExits(NULL, NULL, NULL, a);
+	b->setExits(NULL, x, NULL, a);
 	c->setExits(NULL, a, NULL, NULL);
 	d->setExits(a, e, NULL, i);
 	e->setExits(NULL, NULL, NULL, d);
@@ -40,6 +41,7 @@ void ZorkUL::createRooms()  {
 	g->setExits(NULL, NULL, NULL, f);
 	h->setExits(NULL, f, NULL, NULL);
     i->setExits(NULL, d, NULL, NULL);
+	x->setExits(NULL, NULL, NULL, b);
 
         currentRoom = a;
 }
